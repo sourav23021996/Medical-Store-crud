@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: hp
+Build-Jdk: 16.0.1
+Implementation-Title: MedicalStore
+Implementation-Version: v1
+Implementation-Vendor-Id: com.example
+Implementation-URL: https://spring.io/projects/spring-boot/MedicalStore
+Created-By: Maven Integration for Eclipse
+

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+ <title>View Store</title>
+  
+
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  
+</head>
+<body>
+
+
+<div>
+<header style="text-align: center;text-decoration: black; font-size: 31px;">Medical Store</header>
+<div class="col">
+<!-- <button type="button" class="btn btn-primary">Logout</button> -->
+</div>
+</div>
+    <div class="row">
+    <div class="col-md-4 container my-2">
+        <table class="table table-bordered table-responsive-md" style="box-shadow: 2px 2px 2px black; height: 100%vh;">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th scope="col">
+
+                    <button type="button" class="btn btn-success">Logout</button>
+                </th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+               
+              </tr>
+              <tr>
+               
+              </tr>
+              <tr>
+               
+              </tr>
+            </tbody>
+          </table>
+
+
+    </div>
+    <div class="col-md-8 container my-2">
+    
+    <!-- <a href="@{/showMedicineForm}" class="btn btn-primary btn-sm mb-3">ADD</a> -->
+  <!--  <button type="button" class="btn btn-primary btn-sm mb-3" th:onclick="|window.location.href='/ManageStore'|"> ADD</button> -->
+        <a th:href="@{'/store/new/'}"> <button type="button" class="btn btn-primary btn-sm mb-3"> Add</button></a>
+        
+        
+        <table class="table table-bordered table-responsive-md" style="box-shadow: 2px 2px 2px 2px black;height: 100%vh;">
+            <thead class="thead-dark">
+              <tr>
+              <th>SrNo</th>
+                <th>storeName</th>
+                <th>userName</th>
+                <th>Password</th>
+                <th>Emailid</th>
+                <th>mobileNumber</th>
+                <th>AddressOne</th>
+                <th>AddressTwo</th>
+                <th>StoreLicense</th>
+                <th>storeType</th>
+                <th>storeRegistration</th>
+                <th>Update</th>
+              </tr>
+            </thead>
+            <tbody>
+               <tr th:each="store_details: ${listStore}">
+                <td><span th:text="${store_details.id}">id</span></td>
+                <td><span th:text="${store_details.storeName}">storeName</span></td>
+               <td><span th:text="${store_details.userName}">UserName</span></td>
+                <td><span th:text="${store_details.password}">password</span></td>
+               <td><span th:text="${store_details.storeEmailId}">email</span></td>
+                <td><span th:text="${store_details.mobileNumber}">mobilenumber</span></td>
+                <td><span th:text="${store_details.addressone}">addressone</span></td>
+               <td><span th:text="${store_details.addresstwo}">addresstwo</span></td>
+              <td><span th:text="${store_details.storeLicense}">storelicense</span></td>
+               <td><span th:text="${store_details.storeType.TypeName}">storetype</span></td>
+               <td><span th:text="${store_details.storeRegistration}">storeregistration</span></td>
+
+
+<td><a th:href="@{'/updateStore/' + ${store_details.id}}"> <button type="button" class="btn btn-primary btn-sm mb-3"> edit</button></a>
+&nbsp;
+<a th:href="@{'/delete/' + ${store_details.id}}"> <button type="button" class="btn btn-primary btn-sm mb-3"> delete</button></a></td>
+
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+   
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
+
+  
+ <!--  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  
+  
+</head>
+<body>
+<div class=container>
+<div th:if="${medicalstore.id==null}"><h1> create</h1></div>
+<div th:unless="${medicalstore.id==null}"><h1> edit</h1></div>
+
+<!-- <form action="#" th:action="@{/saveMedicine}" th:object="${newmedicine}" method="GET"> -->
+<!-- <div th:if="${medicalstore.id==null}">create</div>
+<div th:unless="${medicalstore.id==null}">edit</div> -->
+<form th:action="@{/savestore}" th:object="${medicalstore}" method="POST">
+ 
+<input type="hidden" th:field="${medicalstore.id}" />
+<div>
+<input type="text" th:field="*{storeName}"
+placeholder="Store Name" class="form-control mb-4 col-4">
+</div>
+
+<div>
+<input type="text" th:field="*{userName}"
+placeholder="UserDetail" class="form-control mb-4 col-4">
+</div>
+
+<div>
+<input type="text" th:field="*{password}"
+placeholder="Password" class="form-control mb-4 col-4">
+</div>
+
+<div>
+<input type="text" th:field="*{storeEmailId}"
+placeholder="EmailId" class="form-control mb-4 col-4">
+</div>
+
+<div>
+<input type="text" th:field="*{mobileNumber}"
+placeholder="mobileNumber" class="form-control mb-4 col-4">
+</div>
+
+
+<div>
+<input type="text" th:field="*{addressone}"
+placeholder="address" class="form-control mb-4 col-4">
+</div>
+
+<div>
+<input type="text" th:field="*{addresstwo}"
+placeholder="address2" class="form-control mb-4 col-4">
+</div>
+
+<div>
+<input type="text" th:field="*{storeLicense}"
+placeholder="storelicense" class="form-control mb-4 col-4">
+</div>
+
+
+
+<div>
+<select th:field="*{storeType}" style="width:100%; height:30px; font-size: 1.5rem" class="form-control">
+
+
+<th:block th:each="storetype : ${storetypename}">
+       <option th:text="${storetype.TypeName}" th:value="${storetype.id}" />
+  
+    </th:block>
+</select>
+</div>
+
+<div>
+<input type="text" th:field="*{storeRegistration}"
+placeholder="storeregistration" class="form-control mb-4 col-4">
+</div>
+
+<button type="submit" class="btn btn-info col-2">Save</button>
+</form>
+
+</div>
+
+ <!-- <option th:each="storeObj: ${medicalStoreName}" th:value="${storeObj}" th:text="${medicalStoreName.storeName}"></option>
+
+
+
+ 
+ <option th:each="${medicalStoreName.storeName}"></option> -->
+<!-- <option value="0">select operator</option>
+ <option th:each="StoreObj: ${medicalStoreName.storeName" th:value="${storeObj.id}" th:text="${storeObj.storeName}"></option>
+   -->
+ <!-- <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.userName}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.password}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.storeEmailId}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.mobileNumber}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.addressone}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.addresstwo}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.storeLicense}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.storeType}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.storeRegistration}" /> -->
+
+<!-- <input type="text" th:field="*{storeId}"
+placeholder="Store" class="form-control mb-4 col-4">
+
+
+<input type="text" th:field="*{medId}"
+placeholder="MedicineType" class="form-control mb-4 col-4"> -->
+
+
+
+
+</body>
+</html>

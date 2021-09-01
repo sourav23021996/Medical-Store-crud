@@ -1,0 +1,109 @@
+<html lang="en" xmlns:th="http://thymeleaf.org">
+  
+    <head>
+        
+      <title>Add Medicine</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+   
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
+
+  
+ <!--  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  
+  
+</head>
+<body>
+<!-- <div class=container> -->
+<h1>
+Add Medicine
+</h1>
+
+
+<!-- <form action="#" th:action="@{/saveMedicine}" th:object="${newmedicine}" method="GET"> -->
+<form th:action="@{/saveMedicine}" th:object="${newmedicine}" method="POST">
+<div>
+<input type="text" th:field="*{medName}"
+placeholder="Medicine Name" class="form-control mb-4 col-4">
+</div>
+
+<div>
+<input type="text" th:field="*{medDetail}"
+placeholder="MedicineDetail" class="form-control mb-4 col-4">
+</div>
+
+<div>
+<input type="text" th:field="*{medPrice}"
+placeholder="MedicinePrice" class="form-control mb-4 col-4">
+</div>
+
+<div>
+<input type="number" min="0" max="11" step="0.01" th:field="*{quantitiy}"
+placeholder="MedicineQuantity" class="form-control mb-4 col-4">
+</div>
+
+<div>
+<input type="date" th:field="*{expiry}"
+placeholder="MedicineExpiry" class="form-control mb-4 col-4">
+</div>
+
+
+
+
+
+<div>
+<select th:field="*{storeId}" style="width:100%; height:30px;" class="form-control">
+
+
+<th:block th:each="store: ${medicalStoreName}">
+       <option th:text="${store.storeName}" th:value="${store.id}" />
+  
+    </th:block>
+</select>
+</div>
+<button type="submit" class="btn btn-info col-2">Save</button>
+</form>
+
+
+
+ <!-- <option th:each="storeObj: ${medicalStoreName}" th:value="${storeObj}" th:text="${medicalStoreName.storeName}"></option>
+
+
+
+ 
+ <option th:each="${medicalStoreName.storeName}"></option> -->
+<!-- <option value="0">select operator</option>
+ <option th:each="StoreObj: ${medicalStoreName.storeName" th:value="${storeObj.id}" th:text="${storeObj.storeName}"></option>
+   -->
+ <!-- <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.userName}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.password}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.storeEmailId}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.mobileNumber}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.addressone}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.addresstwo}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.storeLicense}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.storeType}" />
+ <option th:each="storeId: ${medicalStoreName}" th:value="${storeId}" th:text="${storeId.storeRegistration}" /> -->
+
+<!-- <input type="text" th:field="*{storeId}"
+placeholder="Store" class="form-control mb-4 col-4">
+
+
+<input type="text" th:field="*{medId}"
+placeholder="MedicineType" class="form-control mb-4 col-4"> -->
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+ <title>Add Store</title>
+  
+     <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    -->
+<!-- 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
+ -->
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  
+</head>
+<body>
+
+
+<h1>
+Add Medicine
+</h1>
+
+
+<form th:action="@{/saveStore}" th:object="${addStore}" method="GET">
+
+<input type="text" th:field="*{storeName}"
+placeholder="Medicine Name" class="form-control mb-4 col-4">
+
+
+<input type="text" th:field="*{userName}"
+placeholder="MedicineDetail" class="form-control mb-4 col-4">
+
+
+<input type="number" th:field="*{password}"
+placeholder="MedicinePrice" class="form-control mb-4 col-4">
+
+
+<input type="text" th:field="*{storeEmailId}"
+placeholder="MedicineExpiry" class="form-control mb-4 col-4">
+
+<input type="number" min="0" max="11" step="0.01" th:field="*{mobileNumber}"
+placeholder="MedicineQuantity" class="form-control mb-4 col-4">
+
+<input type="text" min="0" max="11" step="0.01" th:field="*{addressone}"
+placeholder="MedicineQuantity" class="form-control mb-4 col-4">
+
+<input type="text" min="0" max="11" step="0.01" th:field="*{addresstwo}"
+placeholder="MedicineQuantity" class="form-control mb-4 col-4">
+
+<input type="number" min="0" max="11" step="0.01" th:field="*{storeLicense}"
+placeholder="MedicineQuantity" class="form-control mb-4 col-4">
+
+
+<select th:field="${storeType}" style="width:100%; height:80px; font-size: 3rem" class="form-control" required>
+
+
+<th:block th:each="store: ${storeType}">
+       <option th:text="${store.ypeName}" th:value="${store.id}" />
+  
+    </th:block>
+</select>
+
+
+<input type="number" min="0" max="11" step="0.01" th:field="*{storeRegistration}"
+placeholder="MedicineQuantity" class="form-control mb-4 col-4">
+
+<button type="submit" class="btn btn-info col-2">Save</button>
+</form>
+
+
+
+</body>
+</html>
